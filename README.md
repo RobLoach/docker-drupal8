@@ -21,24 +21,29 @@ http://github.com/robloach/docker-drupal8
 ### Install
 
 Pull `robloach/drupal8` from the Docker repository:
-```
-docker pull robloach/docker-drupal8
-```
+
+    docker pull robloach/docker-drupal8
 
 Or build `robloach/docker-drupal8` from source:
-```
-git clone https://github.com/RobLoach/docker-drupal8.git
-docker build -t robloach/docker-drupal8 robloach/docker-drupal8
-```
 
-### Run
+    git clone https://github.com/RobLoach/docker-drupal8.git
+    docker build -t robloach/docker-drupal8 robloach/docker-drupal8
 
-Run the image, binding associated ports, and mounting the present working
+
+### Usage
+
+Switch to where Drupal is installed, or check it out directly:
+
+    git clone --branch 8.0.x http://git.drupal.org/project/drupal.git
+    cd drupal
+
+Run the container, binding associated ports, and mounting the present working
 directory:
 
-```
-docker run -p 880:80 -p 222:22 -v $(pwd)/drupal:/var/www/html:rw robloach/docker-drupal8
-```
+    docker run -p 880:80 -p 222:22 -v $(pwd):/var/www/html:rw robloach/docker-drupal8
+
+Visit `http://localhost:880` in your browser, to allow Drupal to install using
+`root:root` for the MySQL permissions.
 
 
 ### Work In Progress
